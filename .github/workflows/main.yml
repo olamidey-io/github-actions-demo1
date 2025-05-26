@@ -27,3 +27,4 @@ jobs:
     - name: Run tests
       run: npm test  # Runs 'npm test' to execute the project's test scripts
 ```
+
