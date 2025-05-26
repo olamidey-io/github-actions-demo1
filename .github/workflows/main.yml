@@ -1,30 +1,23 @@
-```yaml
-name: CI   # The name of the workflow (CI stands for Continuous Integration)
+name: CI  # Name of the workflow
 
-
-on: [push, pull_request]   # Triggers the workflow on every 'push' or 'pull request' to the repository
+on: [push, pull_request]  # Triggers the workflow on push or pull requests
 
 jobs:
-  build:  # The name of the job within this workflow
-    runs-on: ubuntu-latest  # The job will run on the latest version of the Ubuntu runner provided by GitHub
+  build:
+    runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the code from the repository
-    - name: Checkout code
-      uses: actions/checkout@v2   # Uses the GitHub-provided action to check out the repository's code
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Step 2: Set up the Node.js environment
-    - name: Set up Node.js
-      uses: actions/setup-node@v2  # Uses the action to set up Node.js on the runner
-      with:
-        node-version: '14'   # Specifies that Node.js version 14 will be used
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-      # Step 3: Install project dependencies
-    - name: Install dependencies
-      run: npm install    # Runs 'npm install' to install dependencies from package.json
+      - name: Install dependencies
+        run: npm install
 
-       # Step 4: Run the test suite
-    - name: Run tests
-      run: npm test  # Runs 'npm test' to execute the project's test scripts
-```
+      - name: Run tests
+        run: npm test
 
